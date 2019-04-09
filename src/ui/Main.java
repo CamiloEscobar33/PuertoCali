@@ -13,7 +13,7 @@ public class Main {
 	
 	public Main(){
 
-	Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 	
 	}
 
@@ -24,11 +24,10 @@ public class Main {
 		
 	}
 
-	boolean salir = true;
-
-	int option;
+	
 
 	public void mostrarResultados() {
+		
 
 		System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
 
@@ -80,46 +79,48 @@ public class Main {
 
 		double alto3 = scanner.nextDouble();
 
-		Contenedor co3 = new Contenedor (ancho1,largo1,alto1);
-
-	   	Contenedor co2 = new Contenedor (ancho2,largo2,alto2);
-
-		Contenedor co1 = new Contenedor (ancho3,largo3,alto3);
-		
-		Puerto puerto = new Puerto(co1, co2, co3);
+				
+		Puerto puerto = new Puerto(ancho1,ancho2,ancho3,largo1,largo2,largo3,alto1,alto2,alto3);
 	
+		boolean salir = true;
 
-		System.out.println("Menu");
-		System.out.println("1. Calcular el volumen de la mercancia de los contenedores.");
-		System.out.println("2. Calcular el volumen promedio de los contenedores.");
-		System.out.println("3. Salir de menu.");
+	    int option;
 
-		System.out.println("Digite una opción: ");
+	    while (salir == true) {
 
- 		option = scanner.nextInt(); 
+			System.out.println("Menu");
+			System.out.println("1. Calcular el volumen de la mercancia de los contenedores.");
+			System.out.println("2. Calcular el volumen promedio de los contenedores.");
+			System.out.println("3. Salir de menu.");
 
-			switch (option) {
+			System.out.println("Digite una opcion: ");
 
-				case 1: 
+		
+ 			option = scanner.nextInt(); 
 
-				  	System.out.println("El vlomen de la mercancia de los contenedores es " + puerto.calcularVolumenMercancia());
+				switch (option) {
 
-					break;
+					case 1: 
 
-				case 2: 
-
-					System.out.println("El volumen promedio de los contenedores es " + puerto.calcularVolumenPromedio());
-
-					break;
-
-				case 3: 
-
-					salir = false;
-					System.out.println("Hasta luego");
+					  	System.out.println("El vlomen de la mercancia de los contenedores es " + puerto.calcularVolumenMercancia());
 
 					break;
 
-			}
+					case 2: 
+
+						System.out.println("El volumen promedio de los contenedores es " + puerto.calcularVolumenPromedio());
+
+					break;
+
+					case 3: 
+
+						salir = false;
+						System.out.println("Hasta luego");
+
+					break;
+
+				}
+		}
     } 
 
 }
