@@ -21,12 +21,11 @@ public class Contenedor {
 
 	public Double calcularVolumenContenedor() {
 
-		double volumen = 0.0;
-
+		double volumen = ancho * alto * largo;
 		
-
-
 		return volumen; 
 	}
+
+
 
 }

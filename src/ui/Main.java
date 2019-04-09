@@ -1,6 +1,6 @@
 package ui;
 
-/*import model.*;*/
+import model.*;
 
 import java.util.Scanner;
 
@@ -13,9 +13,7 @@ public class Main {
 	
 	public Main(){
 
-	scanner = new Scanner(System.in);
-	
-	puerto = new Puerto();
+	Scanner scanner = new Scanner(System.in);
 	
 	}
 
@@ -26,11 +24,15 @@ public class Main {
 		
 	}
 
+	boolean salir = true;
+
+	int option;
+
 	public void mostrarResultados() {
 
 		System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
 
-		System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-Puerto de Cali Icesi_-_-_-_-_-_-_-_-_-_-_-_-");
+		System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Puerto de Cali Icesi_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
 
 		System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
 
@@ -78,30 +80,46 @@ public class Main {
 
 		double alto3 = scanner.nextDouble();
 
+		Contenedor co3 = new Contenedor (ancho1,largo1,alto1);
 
+	   	Contenedor co2 = new Contenedor (ancho2,largo2,alto2);
 
-		/*Contenedor co1 = new Contenedor (ancho1,largo1,alto1);
-
-		Contenedor co2 = new Contenedor (ancho2,largo2,alto2);
-
-		Contenedor co3 = new Contenedor (ancho3,largo3,alto3);*/
+		Contenedor co1 = new Contenedor (ancho3,largo3,alto3);
+		
+		Puerto puerto = new Puerto(co1, co2, co3);
+	
 
 		System.out.println("Menu");
+		System.out.println("1. Calcular el volumen de la mercancia de los contenedores.");
+		System.out.println("2. Calcular el volumen promedio de los contenedores.");
+		System.out.println("3. Salir de menu.");
 
+		System.out.println("Digite una opción: ");
 
+ 		option = scanner.nextInt(); 
 
-		/*double area = rectangle.calcularArea();
+			switch (option) {
 
-		double perimetro = rectangle.calcularPerimetro();
+				case 1: 
 
-		double longitudDiagonal = rectangle.calcularDiagonal();
+				  	System.out.println("El vlomen de la mercancia de los contenedores es " + puerto.calcularVolumenMercancia());
 
-		System.out.println("El area de rectangulo es: " + area + "\nEl perimetro del rectangulo es: " + perimetro + "\nLa longitud del la diagonal del rectangulo es: " + longitudDiagonal);		
-	    */
+					break;
 
+				case 2: 
 
+					System.out.println("El volumen promedio de los contenedores es " + puerto.calcularVolumenPromedio());
 
-    }
+					break;
 
+				case 3: 
+
+					salir = false;
+					System.out.println("Hasta luego");
+
+					break;
+
+			}
+    } 
 
 }
